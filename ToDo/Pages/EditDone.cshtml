@@ -1,0 +1,70 @@
+﻿@page "{Id}"
+@model ToDo.Pages.EditDoneModel
+@{
+    <div class="container text-center">
+        <h1>Edit</h1>
+        <br />
+        @if (Model.ToDo != null)
+        {
+            <div asp-route="@Model.ToDo.Id">
+                <form method="post">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <p>Indtast hvad du vil tilføje til din ToDo: </p>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control"
+                                               placeholder="@Model.ToDo.ToDoName" asp-for="ToDoName" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <p>Tilføj en description på din ToDo: </p>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control"
+                                               placeholder="@Model.ToDo.Description" asp-for="Decription" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <p>Færdig gjørt din ToDo?: </p>
+                                    <p>if checked = done: </p>
+                                    <div class="input-group">
+                                        <input type="checkbox" class="form-control"
+                                               placeholder="@Model.ToDo.Done" asp-for="Done" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div>
+                                <button type="submit" class="btn btn-info">Save ToDo</button>
+                                <br />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <form method="post" asp-page-handler="Remove">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div>
+                                <button type="submit" class="btn btn-info" onclick="return confirm('Are u sure u want to delet the ToDo')">Remove ToDo</button>
+                                <br />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        }
+        <a asp-page="./Index" class="btn btn-danger"><i class="btn text-white">Back To ToDos</i></a>
+
+    </div>
+
+}

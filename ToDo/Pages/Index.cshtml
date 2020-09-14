@@ -1,0 +1,116 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="container text-center">
+    <h1>Velkommen Til</h1>
+    <br />
+    <img src="~/Images/ToDologo7.png" height="300" />
+    <br />
+    <br />
+
+    <form method="post">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="form-group">
+                        <p>Indtast hvad du vil tilføje til din ToDo: </p>
+                        <div class="input-group">
+                            <input type="text" class="form-control"
+                                   asp-for="ToDoName" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="form-group">
+                        <p>Tilføj en description på din ToDo: </p>
+                        <div class="input-group">
+                            <input type="text" class="form-control"
+                                   asp-for="Decription" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div>
+                    <button type="submit" class="btn btn-info">Add ToDo</button>
+                    <br />
+                </div>
+            </div>
+        </div>
+    </form>
+    @*
+        <br />
+        <div class="col-md-6">
+            <form method="post" asp-page-handler="GetUnDoneToDos">
+                <div>
+                    <button type="submit" class="btn btn-info">Get All Un-done ToDo</button>
+                    <br />
+                </div>
+            </form>
+        </div>
+    *@
+
+    <br />
+    <br />
+
+
+    <div class="row">
+        <div class="col-md-6">
+            <h2>ToDo list you need ToDo</h2>
+            <table class="table table-dark">
+                @if (Model.ToDosList != null)
+                {
+                    <tr>
+                        <th>ToDo Name</th>
+                        <th>ToDo Description</th>
+                    </tr>
+                    @foreach (var todos in Model.ToDosList)
+                    {
+                        @if (todos.Done == false)
+                        {
+                            <tr>
+                                <td>@todos.ToDoName</td>
+                                <td>@todos.Description</td>
+                                <td>
+                                    <a class="btn btn-success" asp-page="./Edit" asp-route-Id="@todos.Id">Edit</a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                }
+            </table>
+        </div>
+        <div class="col-md-6">
+            <h2>ToDo list you have done</h2>
+            <table class="table table-dark">
+                @if (Model.ToDosListDone != null)
+                {
+
+                    <tr>
+                        <th>ToDo Name</th>
+                        <th>Is Done?</th>
+                    </tr>
+                    @foreach (var todos in Model.ToDosListDone)
+                    {
+                        @if (todos.Done == true)
+                        {
+                            <tr>
+                                <td>@todos.ToDoName</td>
+                                <td>@todos.Done</td>
+                                <td>
+                                    <a class="btn btn-success" asp-page="./EditDone" asp-route-Id="@todos.Id">Edit</a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                }
+            </table>
+        </div>
+    </div>
+
+</div>
