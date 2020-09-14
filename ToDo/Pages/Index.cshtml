@@ -53,6 +53,8 @@
 
     <br />
     <br />
+
+
     @*ToDos*@
     <div class="row">
         <div class="col-md-6">
@@ -72,7 +74,7 @@
                                 <td>@todos.ToDoName</td>
                                 <td>@todos.Description</td>
                                 <td>
-                                    <a class="btn btn-success" asp-page="./Edit" asp-route-Id="@todos.Id">Edit</a>
+                                    <a asp-page="./Edit" asp-route-Id="@todos.Id">Edit</a>
                                 </td>
                             </tr>
                         }
@@ -80,6 +82,8 @@
                 }
             </table>
         </div>
+
+
         @*Done ToDos*@
         <div class="col-md-6">
             <h2>ToDo list you have done</h2>
@@ -99,7 +103,7 @@
                                 <td>@todos.ToDoName</td>
                                 <td>@todos.Done</td>
                                 <td>
-                                    <a class="btn btn-success" asp-page="./EditDone" asp-route-Id="@todos.Id">Edit</a>
+                                    <a asp-page="./EditDone" asp-route-Id="@todos.Id">Edit</a>
                                 </td>
                             </tr>
                         }

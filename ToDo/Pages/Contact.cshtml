@@ -10,6 +10,8 @@
                 <br />
             </div>
         </div>
+
+
         <form method="post">
             <div class="row" asp-validation-summary="All">
                 <div class="col-lg-6">
@@ -51,25 +53,27 @@
             </div>
         </form>
 
-            <form method="post" asp-page-handler="Kontakt">
-                <div class="col-lg-12">
-                    <div>
-                        <br />
-                        <p> </p>
-                        <button type="submit" class="btn btn-info">Find tidliger beskeder</button>
-                    </div>
+
+        <form method="post" asp-page-handler="Kontakt">
+            <div class="col-lg-12">
+                <div>
+                    <br />
+                    <p> </p>
+                    <button type="submit" class="btn btn-info">Find tidliger beskeder</button>
                 </div>
-            </form>
-            <form method="post" asp-page-handler="NewslettersSubs">
-                <div class="col-lg-12">
-                    <div>
-                        <br />
-                        <p> </p>
-                        <button type="submit" class="btn btn-info">Find News Letter Subscribers</button>
-                    </div>
+            </div>
+        </form>
+
+        <form method="post" asp-page-handler="NewslettersSubs">
+            <div class="col-lg-12">
+                <div>
+                    <br />
+                    <p> </p>
+                    <button type="submit" class="btn btn-info">Find News Letter Subscribers</button>
                 </div>
-            </form>
-            <br />
+            </div>
+        </form>
+        <br />
 
 
 
@@ -121,4 +125,4 @@
             }
         </table>
     </div>
-        }
+}

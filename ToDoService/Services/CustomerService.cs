@@ -10,8 +10,8 @@ namespace ToDoService.Services
 
         static List<Customer> newsCusomer = new List<Customer>();
         static List<Customer> contactCustomers = new List<Customer>();
-        int i = 1;
-        int id = 1;
+        static int i = 1;
+        static int id = 1;
 
         public void AddCustomerContact(string name, string email, string description)
         {

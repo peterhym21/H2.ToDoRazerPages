@@ -14,7 +14,7 @@ namespace ToDoService.Services
         private static List<ToDos> ToDosL = new List<ToDos>();
         private ToDos Todos = new ToDos();
         private static List<ToDos> DoneToDosL = new List<ToDos>();
-        int i = 1;
+        static int i = 1;
         #endregion
 
         #region methoead that manipulate data

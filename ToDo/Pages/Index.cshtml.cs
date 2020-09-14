@@ -24,24 +24,24 @@ namespace ToDo.Pages
             this._customerService = customerService;
         }
 
+        #region propertys
         public List<ToDos> ToDosList { get; set; }
         public List<ToDos> ToDosListDone { get; set; }
         public string NewItem { get; set; }
 
 
 
-        [BindProperty]
+        [BindProperty, Required]
         public string ToDoName { get; set; }
         [BindProperty]
         public string Description { get; set; }
-        [BindProperty]
-        [Required]
+        [BindProperty, Required]
         public string Name { get; set; }
 
-        [BindProperty]
-        [Required]
+        [BindProperty, Required]
         public string Email { get; set; }
 
+        #endregion
 
         public void OnGet()
         {
@@ -65,6 +65,9 @@ namespace ToDo.Pages
         public void OnPostNewsLetter()
         {
             _customerService.AddCustomerNewsletter(Name, Email);
+            ToDoName = "";
+            Description = "";
+            ModelState.Clear();
         }
 
     }

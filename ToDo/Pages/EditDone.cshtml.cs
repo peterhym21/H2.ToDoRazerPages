@@ -39,12 +39,12 @@ namespace ToDo.Pages
             ToDo = _toDoService.GetDoneToDoForEdit(Id);
         }
 
-        public void OnPostAsync(int Id)
+        public void OnPost(int Id)
         {
 
         }
 
-        public void OnPostAsyncRemove(int Id)
+        public void OnPostRemove(int Id)
         {
             _toDoService.RemoveToDos(Id);
 
