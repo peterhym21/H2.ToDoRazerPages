@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Configuration;
@@ -16,21 +14,33 @@ namespace ToDo.Pages
         private readonly ILogger<IndexModel> _logger;
         private readonly IConfiguration _configuration;
         private readonly IToDoList _ToDoService;
+        private readonly ICustomerService _customerService;
 
-        public IndexModel(ILogger<IndexModel> logger, IConfiguration configuration, IToDoList ToDoService)
+        public IndexModel(ILogger<IndexModel> logger, IConfiguration configuration, IToDoList ToDoService, ICustomerService customerService)
         {
             _logger = logger;
             this._configuration = configuration;
             this._ToDoService = ToDoService;
+            this._customerService = customerService;
         }
 
         public List<ToDos> ToDosList { get; set; }
         public List<ToDos> ToDosListDone { get; set; }
+        public string NewItem { get; set; }
+
+
 
         [BindProperty]
         public string ToDoName { get; set; }
         [BindProperty]
-        public string Decription { get; set; }
+        public string Description { get; set; }
+        [BindProperty]
+        [Required]
+        public string Name { get; set; }
+
+        [BindProperty]
+        [Required]
+        public string Email { get; set; }
 
 
         public void OnGet()
@@ -41,12 +51,20 @@ namespace ToDo.Pages
 
         public void OnPost()
         {
-            ToDosList = _ToDoService.AddToDos(ToDoName, Decription);
+            ToDosList = _ToDoService.AddToDos(ToDoName, Description);
+            ToDoName = "";
+            Description = "";
+            ModelState.Clear();
         }
 
         public void OnPostGetUnDoneToDos()
         {
             ToDosList = _ToDoService.GetToDos();
+        }
+
+        public void OnPostNewsLetter()
+        {
+            _customerService.AddCustomerNewsletter(Name, Email);
         }
 
     }

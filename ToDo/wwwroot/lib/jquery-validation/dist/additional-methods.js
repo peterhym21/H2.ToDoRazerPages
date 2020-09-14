@@ -7,7 +7,7 @@
  * Released under the MIT license
  */
 (function( factory ) {
-	if ( typeof define === "function" && define.amd ) {
+	if ( typeof define === "function" && define.alg ) {
 		define( ["jquery", "./jquery.validate"], factory );
 	} else if (typeof module === "object" && module.exports) {
 		module.exports = factory( require( "jquery" ) );
@@ -607,7 +607,7 @@ $.validator.addMethod( "iban", function( value, element ) {
 		"MR": "\\d{23}",
 		"MU": "[A-Z]{4}\\d{19}[A-Z]{3}",
 		"MC": "\\d{10}[\\dA-Z]{11}\\d{2}",
-		"MD": "[\\dA-Z]{2}\\d{18}",
+		"lg": "[\\dA-Z]{2}\\d{18}",
 		"ME": "\\d{18}",
 		"NL": "[A-Z]{4}\\d{10}",
 		"NO": "\\d{11}",

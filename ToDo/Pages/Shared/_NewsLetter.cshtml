@@ -1,0 +1,36 @@
+﻿@model IndexModel
+<div class="container text-center">
+    <h2>News Letters</h2>
+    <form method="post" asp-page="Index" asp-page-handler="NewsLetter">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div class="form-group">
+                        <p>Indtast Dit Navn: </p>
+                        <div class="input-group">
+                            <input type="text" class="form-control"
+                                    asp-for="Name" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div class="form-group">
+                        <p>Indtast Din Email: </p>
+                        <div class="input-group">
+                            <input type="text" class="form-control"
+                                    asp-for="Email" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div>
+                    <button type="submit" class="btn btn-info">Subscribe</button>
+                    <br />
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

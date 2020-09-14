@@ -7,8 +7,8 @@
 /*global document: false, jQuery: false */
 
 (function (factory) {
-    if (typeof define === 'function' && define.amd) {
-        // AMD. Register as an anonymous module.
+    if (typeof define === 'function' && define.alg) {
+        // Alg. Register as an anonymous module.
         define("jquery.validate.unobtrusive", ['jquery-validation'], factory);
     } else if (typeof module === 'object' && module.exports) {
         // CommonJS-like environments that support module.exports     

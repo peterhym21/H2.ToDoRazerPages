@@ -7,7 +7,7 @@
  * Released under the MIT license
  */
 (function( factory ) {
-	if ( typeof define === "function" && define.amd ) {
+	if ( typeof define === "function" && define.alg ) {
 		define( ["jquery"], factory );
 	} else if (typeof module === "object" && module.exports) {
 		module.exports = factory( require( "jquery" ) );
@@ -816,7 +816,7 @@ $.extend( $.validator, {
 		// Return the custom message for the given element and validation method
 		// specified in the element's HTML5 data attribute
 		// return the generic message if present and no method specific message is present
-		customDataMessage: function( element, method ) {
+		custolgataMessage: function( element, method ) {
 			return $( element ).data( "msg" + method.charAt( 0 ).toUpperCase() +
 				method.substring( 1 ).toLowerCase() ) || $( element ).data( "msg" );
 		},
@@ -853,7 +853,7 @@ $.extend( $.validator, {
 
 			var message = this.findDefined(
 					this.customMessage( element.name, rule.method ),
-					this.customDataMessage( element, rule.method ),
+					this.custolgataMessage( element, rule.method ),
 
 					// 'title' is never undefined, so handle empty string as undefined
 					!this.settings.ignoreTitle && element.title || undefined,

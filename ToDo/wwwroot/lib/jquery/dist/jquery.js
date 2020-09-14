@@ -5195,7 +5195,7 @@ jQuery.event = {
 		var handleObjIn, eventHandle, tmp,
 			events, t, handleObj,
 			special, handlers, type, namespaces, origType,
-			elemData = dataPriv.get( elem );
+			elelgata = dataPriv.get( elem );
 
 		// Only attach events to objects that accept data
 		if ( !acceptData( elem ) ) {
@@ -5221,11 +5221,11 @@ jQuery.event = {
 		}
 
 		// Init the element's event structure and main handler, if this is the first
-		if ( !( events = elemData.events ) ) {
-			events = elemData.events = Object.create( null );
+		if ( !( events = elelgata.events ) ) {
+			events = elelgata.events = Object.create( null );
 		}
-		if ( !( eventHandle = elemData.handle ) ) {
-			eventHandle = elemData.handle = function( e ) {
+		if ( !( eventHandle = elelgata.handle ) ) {
+			eventHandle = elelgata.handle = function( e ) {
 
 				// Discard the second event of a jQuery.event.trigger() and
 				// when an event is called after a page has unloaded
@@ -5310,9 +5310,9 @@ jQuery.event = {
 		var j, origCount, tmp,
 			events, t, handleObj,
 			special, handlers, type, namespaces, origType,
-			elemData = dataPriv.hasData( elem ) && dataPriv.get( elem );
+			elelgata = dataPriv.hasData( elem ) && dataPriv.get( elem );
 
-		if ( !elemData || !( events = elemData.events ) ) {
+		if ( !elelgata || !( events = elelgata.events ) ) {
 			return;
 		}
 
@@ -5363,9 +5363,9 @@ jQuery.event = {
 			// (avoids potential for endless recursion during removal of special event handlers)
 			if ( origCount && !handlers.length ) {
 				if ( !special.teardown ||
-					special.teardown.call( elem, namespaces, elemData.handle ) === false ) {
+					special.teardown.call( elem, namespaces, elelgata.handle ) === false ) {
 
-					jQuery.removeEvent( elem, type, elemData.handle );
+					jQuery.removeEvent( elem, type, elelgata.handle );
 				}
 
 				delete events[ type ];
@@ -9557,7 +9557,7 @@ jQuery.extend( {
 		}
 
 		// We can fire global events as of now if asked to
-		// Don't fire events if jQuery.event is undefined in an AMD-usage scenario (#15118)
+		// Don't fire events if jQuery.event is undefined in an Alg-usage scenario (#15118)
 		fireGlobals = jQuery.event && s.global;
 
 		// Watch for a new set of requests
@@ -10816,20 +10816,20 @@ jQuery.trim = function( text ) {
 
 
 
-// Register as a named AMD module, since jQuery can be concatenated with other
+// Register as a named Alg module, since jQuery can be concatenated with other
 // files that may use define, but not via a proper concatenation script that
-// understands anonymous AMD modules. A named AMD is safest and most robust
-// way to register. Lowercase jquery is used because AMD module names are
+// understands anonymous Alg modules. A named Alg is safest and most robust
+// way to register. Lowercase jquery is used because Alg module names are
 // derived from file names, and jQuery is normally delivered in a lowercase
-// file name. Do this after creating the global so that if an AMD module wants
+// file name. Do this after creating the global so that if an Alg module wants
 // to call noConflict to hide this version of jQuery, it will work.
 
 // Note that for maximum portability, libraries that are not jQuery should
 // declare themselves as anonymous modules, and avoid setting a global if an
-// AMD loader is present. jQuery is a special case. For more information, see
+// Alg loader is present. jQuery is a special case. For more information, see
 // https://github.com/jrburke/requirejs/wiki/Updating-existing-libraries#wiki-anon
 
-if ( typeof define === "function" && define.amd ) {
+if ( typeof define === "function" && define.alg ) {
 	define( "jquery", [], function() {
 		return jQuery;
 	} );
@@ -10858,7 +10858,7 @@ jQuery.noConflict = function( deep ) {
 	return jQuery;
 };
 
-// Expose jQuery and $ identifiers, even in AMD
+// Expose jQuery and $ identifiers, even in Alg
 // (#7102#comment:10, https://github.com/jquery/jquery/pull/557)
 // and CommonJS for browser emulators (#13566)
 if ( typeof noGlobal === "undefined" ) {

@@ -26,6 +26,7 @@ namespace ToDo
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IToDoList, ToDoListService>();
+            services.AddScoped<ICustomerService, CustomerService>();
             services.AddRazorPages();
             services.AddRazorPages().AddRazorPagesOptions(options =>
             {

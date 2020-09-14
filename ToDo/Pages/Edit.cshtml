@@ -3,11 +3,17 @@
 @{
 
     <div class="container text-center">
-        <h1>Edit</h1>
+        <div class="row">
+            <div class="col-lg-8">
+                <h1>Edit</h1>
+            </div>
+            <div class="col-lg-4">
+            </div>
+        </div>
         <br />
         <form method="post" asp-route="@Model.ToDo.Id">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-lg-6">
                     <div class="form-group">
                         <div class="form-group">
                             <p>Indtast hvad du vil tilføje til din ToDo: </p>
@@ -18,7 +24,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-lg-6">
                     <div class="form-group">
                         <div class="form-group">
                             <p>Tilføj en description på din ToDo: </p>
@@ -29,7 +35,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-lg-6">
                     <div class="form-group">
                         <div class="form-group">
                             <p>Færdig gjørt din ToDo?: </p>
@@ -41,7 +47,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-12">
+                <div class="col-lg-12">
                     <div>
                         <button type="submit" class="btn btn-info">Save ToDo</button>
                         <br />

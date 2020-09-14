@@ -1,0 +1,124 @@
+﻿@page
+@model ToDo.Pages.ContactModel
+@{
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Contact</h1>
+                <br />
+                <img src="~/Images/ToDologo7.png" height="200" />
+                <br />
+            </div>
+        </div>
+        <form method="post">
+            <div class="row" asp-validation-summary="All">
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <div class="form-group">
+                            <p>Indtast Dit Navn Name: </p>
+                            <div class="input-group">
+                                <input type="text" class="form-control"
+                                       asp-for="Name" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <p>Indtast Dit Email: </p>
+                        <div class="input-group">
+                            <input type="email" class="form-control"
+                                   asp-for="Email" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <p>Skriv beskeden her: </p>
+                        <div class="input-group">
+                            <input type="text" class="form-control"
+                                   asp-for="Description" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div>
+                        <br />
+                        <p> </p>
+                        <button type="submit" class="btn btn-info">Send Besked</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+            <form method="post" asp-page-handler="Kontakt">
+                <div class="col-lg-12">
+                    <div>
+                        <br />
+                        <p> </p>
+                        <button type="submit" class="btn btn-info">Find tidliger beskeder</button>
+                    </div>
+                </div>
+            </form>
+            <form method="post" asp-page-handler="NewslettersSubs">
+                <div class="col-lg-12">
+                    <div>
+                        <br />
+                        <p> </p>
+                        <button type="submit" class="btn btn-info">Find News Letter Subscribers</button>
+                    </div>
+                </div>
+            </form>
+            <br />
+
+
+
+        <table class="table table-dark">
+            @if (Model.Customers != null)
+            {
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Telefon Nummer</th>
+                    <th>Beksrivelse</th>
+                    <th>Kunde Id</th>
+                </tr>
+                @foreach (var users in Model.Customers)
+                {
+
+                    <tr>
+                        <td>@users.Name</td>
+                        <td>@users.Email</td>
+                        <td>@users.Description</td>
+                        <td>@users.Id</td>
+                    </tr>
+                }
+            }
+        </table>
+
+
+
+        <table class="table table-dark">
+            @if (Model.NewsLetterSubs != null)
+            {
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Telefon Nummer</th>
+                    <th>Beksrivelse</th>
+                    <th>Kunde Id</th>
+                </tr>
+                @foreach (var users in Model.NewsLetterSubs)
+                {
+
+                    <tr>
+                        <td>@users.Name</td>
+                        <td>@users.Email</td>
+                        <td>@users.Description</td>
+                        <td>@users.Id</td>
+                    </tr>
+                }
+            }
+        </table>
+    </div>
+        }

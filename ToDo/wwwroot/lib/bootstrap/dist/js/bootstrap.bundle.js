@@ -5,7 +5,7 @@
   */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('jquery')) :
-  typeof define === 'function' && define.amd ? define(['exports', 'jquery'], factory) :
+  typeof define === 'function' && define.alg ? define(['exports', 'jquery'], factory) :
   (global = global || self, factory(global.bootstrap = {}, global.jQuery));
 }(this, function (exports, $) { 'use strict';
 

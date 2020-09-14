@@ -5,12 +5,19 @@
 }
 
 <div class="container text-center">
-    <h1>Velkommen Til</h1>
-    <br />
-    <img src="~/Images/ToDologo7.png" height="300" />
-    <br />
+    <div class="row">
+        <div class="col-md-8">
+            <h1>Velkommen Til</h1>
+            <br />
+            <img src="~/Images/ToDologo7.png" height="300" />
+        </div>
+        <div class="col-md-4">
+            <partial name="_NewsLetter" model="Model" />
+        </div>
+    </div>
     <br />
 
+    @*Add ToDos*@
     <form method="post">
         <div class="row">
             <div class="col-md-6">
@@ -30,7 +37,7 @@
                         <p>Tilføj en description på din ToDo: </p>
                         <div class="input-group">
                             <input type="text" class="form-control"
-                                   asp-for="Decription" />
+                                   asp-for="Description" />
                         </div>
                     </div>
                 </div>
@@ -43,22 +50,10 @@
             </div>
         </div>
     </form>
-    @*
-        <br />
-        <div class="col-md-6">
-            <form method="post" asp-page-handler="GetUnDoneToDos">
-                <div>
-                    <button type="submit" class="btn btn-info">Get All Un-done ToDo</button>
-                    <br />
-                </div>
-            </form>
-        </div>
-    *@
 
     <br />
     <br />
-
-
+    @*ToDos*@
     <div class="row">
         <div class="col-md-6">
             <h2>ToDo list you need ToDo</h2>
@@ -85,6 +80,7 @@
                 }
             </table>
         </div>
+        @*Done ToDos*@
         <div class="col-md-6">
             <h2>ToDo list you have done</h2>
             <table class="table table-dark">
@@ -112,5 +108,4 @@
             </table>
         </div>
     </div>
-
 </div>
