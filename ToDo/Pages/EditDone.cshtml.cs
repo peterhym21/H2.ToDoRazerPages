@@ -41,6 +41,10 @@ namespace ToDo.Pages
 
         public void OnPost(int Id)
         {
+            if (Done == false)
+            {
+                _toDoService.moveToDosBack(ToDoName, Decription, Id);
+            }
 
         }
 

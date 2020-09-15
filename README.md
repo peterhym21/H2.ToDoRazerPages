@@ -36,7 +36,7 @@ Vælge om man vil se færdige eller ej <br>
 - [x] Navbar man kan vælge sider med
 - [x] Partiel view til header og footer
 - [x] News Letter side / partiel
-- [ ] Sorte efter dato
+- [x] Filtrer efter dato
 
 
 -----

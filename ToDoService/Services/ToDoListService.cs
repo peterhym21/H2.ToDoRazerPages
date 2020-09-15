@@ -12,6 +12,7 @@ namespace ToDoService.Services
     {
         #region list and propetys
         private static List<ToDos> ToDosL = new List<ToDos>();
+        private  List<ToDos> FilteredToDoL = new List<ToDos>();
         private ToDos Todos = new ToDos();
         private static List<ToDos> DoneToDosL = new List<ToDos>();
         static int i = 1;
@@ -44,6 +45,29 @@ namespace ToDoService.Services
             return Todos;
         }
 
+        public ToDos moveToDosBack(string toDo, string Description, int id)
+        {
+            foreach (ToDos toDos in DoneToDosL)
+            {
+                if (id == toDos.Id)
+                {
+                    if (toDo != null)
+                        toDos.ToDoName = toDo;
+                    if (Description != null)
+                        toDos.Description = Description;
+                    toDos.Done = true;
+                    ToDosL.Add(toDos);
+                    Todos = toDos;
+                }
+            }
+            if (Todos.Id == id)
+            {
+                DoneToDosL.RemoveAt(--id);
+            }
+
+            return Todos;
+        }
+
         public ToDos EdditToDos(string toDo, string Description, int id)
         {
             foreach (ToDos toDos in ToDosL)
@@ -64,6 +88,33 @@ namespace ToDoService.Services
         public void RemoveToDos(int id)
         {
             DoneToDosL.RemoveAt(--id);
+
+        }
+
+        public List<ToDos> FilterForvard(DateTime date)
+        {
+            foreach (ToDos toDos in ToDosL)
+            {
+                if (date <= toDos.Date)
+                {
+                    FilteredToDoL.Add(toDos);
+
+                }
+            }
+            return FilteredToDoL;
+        }
+
+        List<ToDos> IToDoList.FilterOlder(DateTime date)
+        {
+            foreach (ToDos toDos in ToDosL)
+            {
+                if (date >= toDos.Date)
+                {
+                    FilteredToDoL.Add(toDos);
+
+                }
+            }
+            return FilteredToDoL;
 
         }
 
@@ -103,6 +154,8 @@ namespace ToDoService.Services
             }
             return Todos;
         }
+
+        
 
 
         #endregion

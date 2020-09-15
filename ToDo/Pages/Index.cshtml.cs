@@ -1,11 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Security.Cryptography.Xml;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using ToDoService.Interfaces;
 using ToDoService.Models;
+using ToDoService.Services;
 
 namespace ToDo.Pages
 {
@@ -41,6 +44,11 @@ namespace ToDo.Pages
         [BindProperty, Required]
         public string Email { get; set; }
 
+        [BindProperty]
+        public DateTime PickDateForward { get; set; }
+        [BindProperty]
+        public DateTime PickDateOlder { get; set; }
+
         #endregion
 
         public void OnGet()
@@ -68,6 +76,20 @@ namespace ToDo.Pages
             ToDoName = "";
             Description = "";
             ModelState.Clear();
+        }
+
+        public IActionResult OnPostFilters()
+        {
+            if (PickDateForward != DateTime.MinValue)
+            {
+                ToDosList = _ToDoService.FilterForvard(PickDateForward);
+            }
+            if (PickDateOlder != DateTime.MinValue)
+            {
+                ToDosList = _ToDoService.FilterOlder(PickDateOlder);
+            }
+            return Page();
+
         }
 
     }
