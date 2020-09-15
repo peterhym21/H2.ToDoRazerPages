@@ -39,6 +39,10 @@ Vælge om man vil se færdige eller ej <br>
 - [x] Filtrer efter dato
 
 
+#### exstra tilføjelser
+- Sende mail til brugeren når de kontakter og subscriber
+
+
 -----
 
 Dette projekt er skrevet i ASP.net Core 3.1, I vIsual Studio 16.7.3 Community edetion.

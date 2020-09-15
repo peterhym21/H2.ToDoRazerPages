@@ -9,7 +9,6 @@ namespace ToDoService.Services
 {
     public class CustomerService : ICustomerService
     {
-
         static List<Customer> newsCusomer = new List<Customer>();
         static List<Customer> contactCustomers = new List<Customer>();
         static int i = 1;
@@ -37,6 +36,7 @@ namespace ToDoService.Services
             return newsCusomer;
         }
 
+        #region Mail
         public async void SendEmailContact(string name, string email, string description)
         {
             var clienta = new SmtpClient("smtp.gmail.com", 587)
@@ -53,9 +53,6 @@ namespace ToDoService.Services
             };
             clientb.Send("SmtpclientPH.meh@gmail.com", "todonewsletter@gmail.com", name , name + " Har har følgende beskrivelse: \n " + description + "\n skriv hurtigs mugligt tilbage på:" + email);
 
-
-
-
         }
 
         public async void SendEmailNews(string name, string email)
@@ -70,6 +67,8 @@ namespace ToDoService.Services
             clienta.Send("todonewsletter@gmail.com", email, "News Letter", "Hej " + name + "\n Tak fordi du signed op til ToDos news Letter");
 
         }
+
+        #endregion
 
     }
 }
