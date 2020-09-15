@@ -38,16 +38,6 @@ namespace ToDo.Pages
         {
             ToDo = _toDoService.GetDoneToDoForEdit(Id);
         }
-
-        public void OnPost(int Id)
-        {
-            if (Done == false)
-            {
-                _toDoService.moveToDosBack(ToDoName, Decription, Id);
-            }
-
-        }
-
         public void OnPostRemove(int Id)
         {
             _toDoService.RemoveToDos(Id);

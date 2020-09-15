@@ -16,6 +16,7 @@ namespace ToDoService.Services
         private ToDos Todos = new ToDos();
         private static List<ToDos> DoneToDosL = new List<ToDos>();
         static int i = 1;
+        static int j = 1;
         #endregion
 
         #region methoead that manipulate data
@@ -40,33 +41,13 @@ namespace ToDoService.Services
             if (Todos.Id == id)
             {
                 ToDosL.RemoveAt(--id);
+                DoneToDosL[id].Id = j;
+                ++j;
             }
 
             return Todos;
         }
 
-        public ToDos moveToDosBack(string toDo, string Description, int id)
-        {
-            foreach (ToDos toDos in DoneToDosL)
-            {
-                if (id == toDos.Id)
-                {
-                    if (toDo != null)
-                        toDos.ToDoName = toDo;
-                    if (Description != null)
-                        toDos.Description = Description;
-                    toDos.Done = true;
-                    ToDosL.Add(toDos);
-                    Todos = toDos;
-                }
-            }
-            if (Todos.Id == id)
-            {
-                DoneToDosL.RemoveAt(--id);
-            }
-
-            return Todos;
-        }
 
         public ToDos EdditToDos(string toDo, string Description, int id)
         {
@@ -88,6 +69,7 @@ namespace ToDoService.Services
         public void RemoveToDos(int id)
         {
             DoneToDosL.RemoveAt(--id);
+            --j;
 
         }
 

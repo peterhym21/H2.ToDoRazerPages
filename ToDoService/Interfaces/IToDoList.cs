@@ -11,7 +11,6 @@ namespace ToDoService.Interfaces
     {
         List<ToDos> AddToDos(string toDo, string Description);
         ToDos moveToDos(string toDo, string Description, int id);
-        ToDos moveToDosBack(string toDo, string Description, int id);
         void RemoveToDos(int id);
         ToDos EdditToDos(string toDo, string Description, int id);
         List<ToDos> FilterForvard(DateTime date);
