@@ -39,19 +39,19 @@ namespace ToDoService.Services
         #region Mail
         public async void SendEmailContact(string name, string email, string description)
         {
-            var clienta = new SmtpClient("smtp.gmail.com", 587)
+            SmtpClient clienta = new SmtpClient("smtp.gmail.com", 587)
             {
                 Credentials = new NetworkCredential("todonewsletter@gmail.com", "Todonews"),
                 EnableSsl = true
             };
-            clienta.Send("todonewsletter@gmail.com", email, "Contact", "Hej " + name + "\n Tak fordi du Kontaktede os, vi vil kontakte dig med en opføling snarst muligt");
+            await clienta.SendMailAsync("todonewsletter@gmail.com", email, "Contact", "Hej " + name + "\n Tak fordi du Kontaktede os, vi vil kontakte dig med en opføling snarst muligt");
 
-            var clientb = new SmtpClient("smtp.gmail.com", 587)
+            SmtpClient clientb = new SmtpClient("smtp.gmail.com", 587)
             {
                 Credentials = new NetworkCredential("SmtpclientPH.meh@gmail.com", "pete102c"),
                 EnableSsl = true
             };
-            clientb.Send("SmtpclientPH.meh@gmail.com", "todonewsletter@gmail.com", name , name + " Har har følgende beskrivelse: \n " + description + "\n skriv hurtigs mugligt tilbage på:" + email);
+            await clientb.SendMailAsync("SmtpclientPH.meh@gmail.com", "todonewsletter@gmail.com", name , name + " Har har følgende beskrivelse: \n " + description + "\n skriv hurtigs mugligt tilbage på:" + email);
 
         }
 
@@ -59,12 +59,12 @@ namespace ToDoService.Services
         {
             //Todonews
             //todonewsletter@gmail.com
-            var clienta = new SmtpClient("smtp.gmail.com", 587)
+            SmtpClient clienta = new SmtpClient("smtp.gmail.com", 587)
             {
                 Credentials = new NetworkCredential("todonewsletter@gmail.com", "Todonews"),
                 EnableSsl = true
             };
-            clienta.Send("todonewsletter@gmail.com", email, "News Letter", "Hej " + name + "\n Tak fordi du signed op til ToDos news Letter");
+            await clienta.SendMailAsync("todonewsletter@gmail.com", email, "News Letter", "Hej " + name + "\n Tak fordi du signed op til ToDos news Letter");
 
         }
 
