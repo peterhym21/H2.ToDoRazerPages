@@ -1,8 +1,19 @@
 ﻿@model IndexModel
 @{
-    <footer class="border-top footer text-white" style="background-color:slategray" >
+    <footer class="border-top footer text-white" style="background-color:slategray">
         <div class="container">
             &copy; 2020 - ToDo - <a asp-area="" asp-page="/Privacy">Privacy</a>
+
+            <form method="post" asp-page-handler="AFK" class="text-center">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div>
+                            <button type="submit" class="btn btn-info">Click Me I dare u</button>
+                            <br />
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
     </footer>
 }

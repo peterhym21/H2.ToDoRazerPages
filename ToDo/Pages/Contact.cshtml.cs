@@ -47,7 +47,12 @@ namespace ToDo.Pages
 
             }
             else
+            {
                 _customerService.AddCustomerContact(Name, Email, Description);
+                _customerService.SendEmailContact(Name, Email, Description);
+            }
+
+
 
         }
 

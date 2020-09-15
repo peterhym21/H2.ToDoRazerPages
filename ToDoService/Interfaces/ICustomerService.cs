@@ -12,6 +12,10 @@ namespace ToDoService.Interfaces
         void AddCustomerNewsletter(string name, string email);
         void AddCustomerContact(string name, string email, string description);
 
+        void SendEmailNews(string name, string email);
+        void SendEmailContact(string name, string email, string description);
+
+
         List<Customer> GetCustomersNews();
 
         List<Customer> GetCustomersContact();

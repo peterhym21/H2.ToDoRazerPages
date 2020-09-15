@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics;
 using System.Security.Cryptography.Xml;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -73,6 +74,7 @@ namespace ToDo.Pages
         public void OnPostNewsLetter()
         {
             _customerService.AddCustomerNewsletter(Name, Email);
+            _customerService.SendEmailNews(Name, Email);
             ToDoName = "";
             Description = "";
             ModelState.Clear();
@@ -90,6 +92,11 @@ namespace ToDo.Pages
             }
             return Page();
 
+        }
+
+        public void OnPostAFK()
+        {
+            Process.Start("C:\\Program Files (x86)\\Steam\\steamapps\\common\\The Binding of Isaac Rebirth\\isaac-ng.exe");
         }
 
     }
