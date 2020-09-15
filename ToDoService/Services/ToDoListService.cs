@@ -20,7 +20,7 @@ namespace ToDoService.Services
         #region methoead that manipulate data
         public List<ToDos> AddToDos(string toDo, string description)
         {
-            ToDosL.Add(new ToDos { ToDoName = toDo, Done = false, Description = description, Id = i });
+            ToDosL.Add(new ToDos { ToDoName = toDo, Done = false, Description = description, Id = i, Date = DateTime.Now.Date });
             ++i;
             return ToDosL;
         }
