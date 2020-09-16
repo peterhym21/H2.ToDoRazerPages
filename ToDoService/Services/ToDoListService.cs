@@ -11,10 +11,10 @@ namespace ToDoService.Services
     public class ToDoListService : IToDoList
     {
         #region list and propetys
-        private static List<ToDos> ToDoList = new List<ToDos>();
+        private  List<ToDos> ToDoList = new List<ToDos>();
         private List<ToDos> FilteredToDoL = new List<ToDos>();
         private ToDos Todos = new ToDos();
-        static int i = 1;
+        int i = 1;
         #endregion
 
         #region methoead that manipulate data
