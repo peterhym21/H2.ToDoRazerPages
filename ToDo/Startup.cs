@@ -25,8 +25,8 @@ namespace ToDo
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<IToDoList, ToDoListService>();
-            services.AddScoped<ICustomerService, CustomerService>();
+            services.AddSingleton<IToDoList, ToDoListService>();
+            services.AddSingleton<ICustomerService, CustomerService>();
             services.AddRazorPages();
             services.AddRazorPages().AddRazorPagesOptions(options =>
             {

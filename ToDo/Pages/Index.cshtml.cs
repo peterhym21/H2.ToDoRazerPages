@@ -30,7 +30,6 @@ namespace ToDo.Pages
 
         #region propertys
         public List<ToDos> ToDosList { get; set; }
-        public List<ToDos> ToDosListDone { get; set; }
         public string NewItem { get; set; }
 
 
@@ -56,7 +55,6 @@ namespace ToDo.Pages
         public void OnGet()
         {
             ToDosList = _ToDoService.GetToDos();
-            ToDosListDone = _ToDoService.GetDoneToDos();
         }
 
         // tilføj todo

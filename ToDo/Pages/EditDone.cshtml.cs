@@ -34,8 +34,14 @@ namespace ToDo.Pages
 
         public void OnGet(int Id)
         {
-            ToDo = _toDoService.GetDoneToDoForEdit(Id);
+            ToDo = _toDoService.GetToDo(Id);
         }
+
+        public void OnPost(int Id)
+        {
+            ToDo = _toDoService.UpdateToDos(ToDoName, Decription, Id, Done);
+        }
+
 
         public void OnPostRemove(int Id)
         {
