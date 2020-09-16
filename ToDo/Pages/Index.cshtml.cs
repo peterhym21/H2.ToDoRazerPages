@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
+using System.Linq;
 using System.Security.Cryptography.Xml;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -43,6 +44,8 @@ namespace ToDo.Pages
 
         [BindProperty, Required]
         public string Email { get; set; }
+        [BindProperty]
+        public bool Orderby { get; set; }
 
         [BindProperty]
         public DateTime PickDateForward { get; set; }
@@ -87,6 +90,7 @@ namespace ToDo.Pages
             {
                 ToDosList = _ToDoService.FilterOlder(PickDateOlder);
             }
+            
             return Page();
 
         }
