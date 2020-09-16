@@ -9,10 +9,12 @@ namespace ToDoService.Services
 {
     public class CustomerService : ICustomerService
     {
+        #region
         static List<Customer> newsCusomer = new List<Customer>();
         static List<Customer> contactCustomers = new List<Customer>();
         static int i = 1;
         static int id = 1;
+        #endregion
 
         public void AddCustomerContact(string name, string email, string description)
         {

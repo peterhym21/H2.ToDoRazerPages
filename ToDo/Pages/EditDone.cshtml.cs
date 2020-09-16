@@ -21,23 +21,22 @@ namespace ToDo.Pages
             this._toDoService = toDoService;
         }
 
-
+        #region Property
         [BindProperty]
         public string ToDoName { get; set; }
         [BindProperty]
         public string Decription { get; set; }
-
         [BindProperty]
         public bool Done { get; set; }
-
-
         public ToDos ToDo { get; set; }
 
+        #endregion
 
         public void OnGet(int Id)
         {
             ToDo = _toDoService.GetDoneToDoForEdit(Id);
         }
+
         public void OnPostRemove(int Id)
         {
             _toDoService.RemoveToDos(Id);

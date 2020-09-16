@@ -22,7 +22,10 @@ namespace ToDo.Pages
             this._configuration = configuration;
             this._ToDoService = ToDoService;
             this._customerService = customerService;
+        
         }
+
+        #region Property
         public List<Customer> Customers { get; set; }
         public List<Customer> NewsLetterSubs { get; set; }
 
@@ -36,10 +39,14 @@ namespace ToDo.Pages
         [BindProperty]
         [Required]
         public string Description { get; set; }
+
+        #endregion
         public void OnGet()
         {
         }
 
+        // check om all creterier der det i text felterne
+        // add til en contact list og send en email
         public void OnPost()
         {
             if (!ModelState.IsValid)
@@ -55,12 +62,13 @@ namespace ToDo.Pages
 
 
         }
-
+        // få alle kontakts
         public void OnPostKontakt()
         {
             Customers = _customerService.GetCustomersContact();
         }
 
+        // få en list af alle subscribers til newsletter
         public void OnPostNewslettersSubs()
         {
             NewsLetterSubs = _customerService.GetCustomersNews();

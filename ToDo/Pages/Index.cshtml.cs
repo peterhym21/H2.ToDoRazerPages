@@ -52,12 +52,14 @@ namespace ToDo.Pages
 
         #endregion
 
+        // vis liste af todo og done todos
         public void OnGet()
         {
             ToDosList = _ToDoService.GetToDos();
             ToDosListDone = _ToDoService.GetDoneToDos();
         }
 
+        // tilføj todo
         public void OnPost()
         {
             ToDosList = _ToDoService.AddToDos(ToDoName, Description);
@@ -66,11 +68,13 @@ namespace ToDo.Pages
             ModelState.Clear();
         }
 
+        // få færdige todoes
         public void OnPostGetUnDoneToDos()
         {
             ToDosList = _ToDoService.GetToDos();
         }
 
+        // tilføj til newsletter
         public void OnPostNewsLetter()
         {
             _customerService.AddCustomerNewsletter(Name, Email);
@@ -80,6 +84,7 @@ namespace ToDo.Pages
             ModelState.Clear();
         }
 
+        // tjek dato og send den vidre
         public IActionResult OnPostFilters()
         {
             if (PickDateForward != DateTime.MinValue)
