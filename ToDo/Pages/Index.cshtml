@@ -87,14 +87,14 @@
         <div class="col-lg-6">
             <h2>ToDo list you have done</h2>
             <table class="table table-dark">
-                @if (Model.ToDosListDone != null)
+                @if (Model.ToDosList != null)
                 {
 
                     <tr>
                         <th>ToDo Name</th>
                         <th>Is Done?</th>
                     </tr>
-                    @foreach (var todos in Model.ToDosListDone)
+                    @foreach (var todos in Model.ToDosList)
                     {
                         @if (todos.Done == true)
                         {

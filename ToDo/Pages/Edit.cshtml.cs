@@ -21,34 +21,27 @@ namespace ToDo.Pages
             this._toDoService = toDoService;
         }
 
-        #region property
+
         [BindProperty]
         public string ToDoName { get; set; }
         [BindProperty]
         public string Decription { get; set; }
+
         [BindProperty]
         public bool Done { get; set; }
-        public ToDos ToDo { get; set; }
-        #endregion
 
-        // find den specifike todo
+
+        public ToDos ToDo { get; set; }
+
+
         public void OnGet(int Id)
         {
-            ToDo = _toDoService.GetToDoForEdit(Id);
+            ToDo = _toDoService.GetToDo(Id);
         }
 
-        // if done er chekced sæt den til done ellers edit todo
         public void OnPost(int Id)
         {
-            if (Done == true)
-            {
-               ToDo = _toDoService.moveToDos(ToDoName, Decription, Id);
-            }
-            else
-            {
-                ToDo = _toDoService.EdditToDos(ToDoName, Decription, Id);
-            }
-
+                ToDo = _toDoService.UpdateToDos(ToDoName, Decription, Id, Done);
         }
 
     }

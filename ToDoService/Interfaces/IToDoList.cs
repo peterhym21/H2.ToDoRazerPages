@@ -10,17 +10,14 @@ namespace ToDoService.Interfaces
     public interface IToDoList
     {
         List<ToDos> AddToDos(string toDo, string Description);
-        ToDos moveToDos(string toDo, string Description, int id);
         void RemoveToDos(int id);
-        ToDos EdditToDos(string toDo, string Description, int id);
+        ToDos UpdateToDos(string toDo, string Description, int id, bool done);
         List<ToDos> FilterForvard(DateTime date);
         List<ToDos> FilterOlder(DateTime date);
 
 
         List<ToDos> GetToDos();
-        List<ToDos> GetDoneToDos();
-        ToDos GetToDoForEdit(int id);
-        ToDos GetDoneToDoForEdit(int id);
+        ToDos GetToDo(int id);
 
     }
 }

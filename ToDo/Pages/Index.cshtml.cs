@@ -30,7 +30,6 @@ namespace ToDo.Pages
 
         #region propertys
         public List<ToDos> ToDosList { get; set; }
-        public List<ToDos> ToDosListDone { get; set; }
         public string NewItem { get; set; }
 
 
@@ -52,11 +51,10 @@ namespace ToDo.Pages
 
         #endregion
 
-        // vis liste af todo og done todos
+        // vis liste af todo
         public void OnGet()
         {
             ToDosList = _ToDoService.GetToDos();
-            ToDosListDone = _ToDoService.GetDoneToDos();
         }
 
         // tilføj todo
@@ -66,12 +64,6 @@ namespace ToDo.Pages
             ToDoName = "";
             Description = "";
             ModelState.Clear();
-        }
-
-        // få færdige todoes
-        public void OnPostGetUnDoneToDos()
-        {
-            ToDosList = _ToDoService.GetToDos();
         }
 
         // tilføj til newsletter

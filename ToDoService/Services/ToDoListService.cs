@@ -11,47 +11,36 @@ namespace ToDoService.Services
     public class ToDoListService : IToDoList
     {
         #region list and propetys
-        private static List<ToDos> ToDosL = new List<ToDos>();
-        private  List<ToDos> FilteredToDoL = new List<ToDos>();
+        private static List<ToDos> ToDoList = new List<ToDos>();
+        private List<ToDos> FilteredToDoL = new List<ToDos>();
         private ToDos Todos = new ToDos();
-        private static List<ToDos> DoneToDosL = new List<ToDos>();
         static int i = 1;
-        static int j = 1;
         #endregion
 
         #region methoead that manipulate data
         public List<ToDos> AddToDos(string toDo, string description)
         {
-            ToDosL.Add(new ToDos { ToDoName = toDo, Done = false, Description = description, Id = i, Date = DateTime.Now.Date });
+            ToDoList.Add(new ToDos { ToDoName = toDo, Done = false, Description = description, Id = i, Date = DateTime.Now.Date });
             ++i;
-            return ToDosL;
+            return ToDoList;
         }
 
         public ToDos moveToDos(string toDo, string Description, int id)
         {
-            foreach (ToDos toDos in ToDosL)
+            foreach (ToDos toDos in ToDoList)
             {
                 if (id == toDos.Id)
                 {
                     toDos.Done = true;
-                    DoneToDosL.Add(toDos);
-                    Todos = toDos;
                 }
             }
-            if (Todos.Id == id)
-            {
-                ToDosL.RemoveAt(--id);
-                DoneToDosL[id].Id = j;
-                ++j;
-            }
-
             return Todos;
         }
 
 
-        public ToDos EdditToDos(string toDo, string Description, int id)
+        public ToDos UpdateToDos(string toDo, string Description, int id, bool done)
         {
-            foreach (ToDos toDos in ToDosL)
+            foreach (ToDos toDos in ToDoList)
             {
                 if (id == toDos.Id)
                 {
@@ -59,7 +48,7 @@ namespace ToDoService.Services
                         toDos.ToDoName = toDo;
                     if (Description != null)
                         toDos.Description = Description;
-                    toDos.Done = false;
+                    toDos.Done = done;
                     Todos = toDos;
                 }
             }
@@ -68,14 +57,14 @@ namespace ToDoService.Services
 
         public void RemoveToDos(int id)
         {
-            DoneToDosL.RemoveAt(--id);
-            --j;
+            ToDoList.RemoveAt(--id);
 
         }
 
+        #region filetes
         public List<ToDos> FilterForvard(DateTime date)
         {
-            foreach (ToDos toDos in ToDosL)
+            foreach (ToDos toDos in ToDoList)
             {
                 if (date <= toDos.Date)
                 {
@@ -88,7 +77,7 @@ namespace ToDoService.Services
 
         List<ToDos> IToDoList.FilterOlder(DateTime date)
         {
-            foreach (ToDos toDos in ToDosL)
+            foreach (ToDos toDos in ToDoList)
             {
                 if (date >= toDos.Date)
                 {
@@ -99,23 +88,21 @@ namespace ToDoService.Services
             return FilteredToDoL;
 
         }
+        #endregion
 
         #endregion
 
         #region Get metoder
-        public List<ToDos> GetDoneToDos()
-        {
-            return DoneToDosL;
-        }
+
 
         public List<ToDos> GetToDos()
         {
-            return ToDosL;
+            return ToDoList;
         }
 
-        public ToDos GetToDoForEdit(int id)
+        public ToDos GetToDo(int id)
         {
-            foreach (ToDos todo in ToDosL)
+            foreach (ToDos todo in ToDoList)
             {
                 if (id == todo.Id)
                 {
@@ -124,21 +111,6 @@ namespace ToDoService.Services
             }
             return Todos;
         }
-
-        public ToDos GetDoneToDoForEdit(int id)
-        {
-            foreach (ToDos todo in DoneToDosL)
-            {
-                if (id == todo.Id)
-                {
-                    Todos = todo;
-                }
-            }
-            return Todos;
-        }
-
-        
-
 
         #endregion
 
