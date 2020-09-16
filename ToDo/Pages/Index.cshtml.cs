@@ -23,9 +23,9 @@ namespace ToDo.Pages
         public IndexModel(ILogger<IndexModel> logger, IConfiguration configuration, IToDoList ToDoService, ICustomerService customerService)
         {
             _logger = logger;
-            this._configuration = configuration;
-            this._ToDoService = ToDoService;
-            this._customerService = customerService;
+            _configuration = configuration;
+            _ToDoService = ToDoService;
+            _customerService = customerService;
         }
 
         #region propertys

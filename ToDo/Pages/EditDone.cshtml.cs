@@ -17,8 +17,8 @@ namespace ToDo.Pages
 
         public EditDoneModel(IConfiguration configuration, IToDoList toDoService)
         {
-            this._configuration = configuration;
-            this._toDoService = toDoService;
+            _configuration = configuration;
+            _toDoService = toDoService;
         }
 
         #region Property
