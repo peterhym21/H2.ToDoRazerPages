@@ -61,6 +61,7 @@ namespace ToDoService.Services
 
         }
 
+        #region filetes
         public List<ToDos> FilterForvard(DateTime date)
         {
             foreach (ToDos toDos in ToDoList)
@@ -87,6 +88,7 @@ namespace ToDoService.Services
             return FilteredToDoL;
 
         }
+        #endregion
 
         #endregion
 
